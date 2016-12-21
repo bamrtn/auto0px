@@ -1,0 +1,93 @@
+body{
+  background: #E0E0E0;
+}
+#mainContainer{
+  max-width: 800px;
+  margin: auto;
+}
+.blind{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.7);
+  z-index: 5;
+  opacity: 0;
+  display: none;
+  transition: opacity 0.4s;
+  overflow: hidden;
+}
+.modal{
+  background: #F5F5F5;
+  border-radius: 2px;
+  box-shadow: 0px 1px 3px #616161;
+  padding: 0px 8px 24px 0px;
+  overflow: hidden;
+}
+.modalContainer{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 60px);
+  max-width: 900px;
+  height: 0px;
+  transition: height 0.4s;
+  overflow: hidden;
+}
+.dropdownContainer{
+  height: 0px;
+  transition: height 0.4s;
+  overflow: hidden;
+}
+.item{
+  position: relative;
+  display: inline-block;
+  background: #F5F5F5;
+  width: calc(100% - 8px);
+  padding: 0px 8px 24px 0px;
+  margin: 10px 0px 10px 0px;
+  border-radius: 2px;
+  box-shadow: 0px 1px 3px #616161;
+  overflow: hidden;
+}
+.title{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 25px;
+  width: calc(100% - 40px);
+  padding: 24px 16px 16px 16px;
+}
+.frame{
+  position: relative;
+  width: calc(100% - 68px);
+  margin: 0px 20px 0px 28px;
+  padding: 10px;
+  border-radius: 2px;
+  background: #E0E0E0;
+  box-shadow: inset 0px 1px 3px #616161;
+  overflow: hidden;
+}
+.container{
+  background: #BDBDBD;
+  border-radius: 2px;
+}
+.button{
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #C6FF00;
+  display: inline-block;
+  float: left;
+  margin: 8px 0px 0px 8px;
+  padding: 8px 10px 8px 10px;
+  background: #424242;
+  border-radius: 2px;
+  box-shadow: 0px 1px 3px #616161;
+  transition: background 0.4s, box-shadow 0.4s;
+}
+.button:hover{
+  box-shadow: 0px 2px 5px #424242;
+}
+.button:active{
+  background: #212121;
+}

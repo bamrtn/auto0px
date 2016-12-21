@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="auto0px.js"></script>
+	<meta charset="utf-8">
+	<title> Auto0px demonstration </title>
+  <script>
+    var modalButton;
+    var modalBlind;
+    var modalContainer;
+    var modalContent;
+    var modal={};
+    var dropdownContainer;
+    var dropdownContent;
+    var dropdownButton;
+    var dropdown={};
+    function init(){
+      modalButton = document.getElementById('modalButton');
+      modalBlind = document.getElementById('modalBlind');
+      modalContainer = document.getElementById('modalContainer');
+      modalContent = document.getElementById('modalContent');
+      dropdownContainer = document.getElementById('dropdownContainer');
+      dropdownButton = document.getElementById('dropdownButton');
+      dropdownContent = document.getElementById('dropdownContent');
+    }
+    function openModal(){
+      modalButton.onclick=closeModal;
+      modalButton.innerHTML="CLOSE";
+
+      ftransition(modal, function(){
+        modalBlind.style.display = 'block';
+      }, function(){
+        modalBlind.style.opacity = '1';
+        modalContainer.style.height = modalContent.offsetHeight+'px';
+      }, function(){
+        modalContainer.style.height = 'auto';
+      },0.4);
+    }
+
+    function closeModal(){
+      modalButton.onclick=openModal;
+      modalButton.innerHTML="OPEN";
+
+      ftransition(modal, function(){
+        modalContainer.style.height = modalContent.offsetHeight+'px';
+      }, function(){
+        modalBlind.style.opacity = '0';
+        modalContainer.style.height = '0px';
+      }, function(){
+        modalBlind.style.display = 'none';
+      },0.4);
+    }
+
+    function openDropdown(){
+      dropdownButton.onclick=closeDropdown;
+      dropdownButton.innerHTML="CLOSE";
+
+      ftransition(dropdown,undefined, function(){
+        dropdownContainer.style.height = dropdownContent.offsetHeight+'px';
+      }, function(){
+        dropdownContainer.style.height = 'auto';
+      },0.4);
+    }
+
+    function closeDropdown(){
+      dropdownButton.onclick=openDropdown;
+      dropdownButton.innerHTML="OPEN";
+
+      ftransition(dropdown, function(){
+        dropdownContainer.style.height = dropdownContent.offsetHeight+'px';
+      }, function(){
+        dropdownContainer.style.height = '0px';
+      },undefined,0.4);
+    }
+  </script>
+</head>
+<body onload="init()">
+  <div id="mainContainer">
+    <div class="item">
+      <div class="title">Modal demo</div>
+      <div class="frame" style="height: 300px">
+        <div class="title">Some text in the background...</div>
+        <div id="modalBlind" class="blind">
+          <div id="modalContainer" class="modalContainer">
+          <div id="modalContent" class="modal">
+            <div class="title">This is a modal</div>
+          </div>
+          </div>
+      </div>
+      </div>
+      <div id="modalButton" class="button" onclick="openModal()">OPEN</div>
+    </div>
+    <div class="item">
+      <div class="title">Dropdown demo</div>
+      <div class="frame">
+        <div id="dropdownContainer" class="dropdownContainer">
+        <div id="dropdownContent" class="container">
+          <div class="title">1. Element</div>
+          <div class="title">2. Element</div>
+          <div class="title">3. Element</div>
+          <div class="title">4. Element</div>
+        </div>
+        </div>
+      </div>
+      <div id="dropdownButton" class="button" onclick="openDropdown()">OPEN</div>
+    </div>
+  </div>
+</body>
+</html>
